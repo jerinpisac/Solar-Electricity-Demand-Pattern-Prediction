@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Power Prediction</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .index_mainpage{
+            width: 450px;
+            background: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 3px 6px black;
+        }
+        .index_heading{
+            text-align: center;
+            font-size: 35px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            padding-bottom: 40px;
+        }
+        .single{
+            padding-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .single label{
+            font-size: 20px;
+            padding-right: 10px;
+        }
+        .single button{
+            padding: 10px 20px 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+        }
+        .single button::after{
+            content: '';
+            width: 0px;
+            height: 100%;
+            position: absolute;
+            background: black;
+            border-radius: 30px;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            transition: 150ms ease-in-out;
+        }
+        .single button:hover::after{
+            width: 100%;
+        }
+        .single button:hover{
+            color: white;
+        }
+        .upcsv{
+            padding-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .upcsv label{
+            font-size: 20px;
+            padding-right: 25px;
+        }
+        .upcsv button{
+            padding: 10px 20px 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+        }
+        .upcsv button::after{
+            content: '';
+            width: 0px;
+            height: 100%;
+            position: absolute;
+            background: black;
+            border-radius: 30px;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            transition: 150ms ease-in-out;
+        }
+        .upcsv button:hover::after{
+            width: 100%;
+        }
+        .upcsv button:hover{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="index_mainpage">
+        <div class="index_heading">Solar Electricity Demand Pattern Prediction</div>
+        <div class="single">
+            <label>To Upload a single data: </label>
+            <form action="/home1">
+                <button>Click here</button>
+            </form>
+        </div>
+        <div class="upcsv">
+            <label>To Upload a CSV file: </label>
+            <form action="/home2">
+                <button>Click here</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

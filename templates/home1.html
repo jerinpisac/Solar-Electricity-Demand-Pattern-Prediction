@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Electricity Demand Pattern Prediction</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .home1_main{
+            width: 500px;
+            background: white;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            box-shadow: 0 3px 6px black;
+        }
+        .home1_main h1{
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        .da{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .da input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(246, 247, 251, 255);
+            border-radius: 30px;
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .da input::placeholder{
+            color: black;
+        }
+        .ti{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .ti input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(246, 247, 251, 255);
+            border-radius: 30px;
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .ti input::placeholder{
+            color: black;
+        }
+        .grp{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .grp input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 30px;
+            background: rgba(246, 247, 251, 255);
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .grp input::placeholder{
+            color: black;
+        }
+        .volt{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .volt input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(246, 247, 251, 255);
+            border-radius: 30px;
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .volt input::placeholder{
+            color: black;
+        }
+        .gi{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .gi input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(246, 247, 251, 255);
+            border-radius: 30px;
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .gi input::placeholder{
+            color: black;
+        }
+        .s1{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .s1 input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(246, 247, 251, 255);
+            border-radius: 30px;
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .s1 input::placeholder{
+            color: black;
+        }
+        .s2{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .s2 input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(246, 247, 251, 255);
+            border-radius: 30px;
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .s2 input::placeholder{
+            color: black;
+        }
+        .s3{
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .s3 input{
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(246, 247, 251, 255);
+            border-radius: 30px;
+            outline: none;
+            padding: 10px 50px 10px 30px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .s3 input::placeholder{
+            color: black;
+        }
+        .home1_main button{
+            width: 100%;
+            height: 40px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: mediumblue;
+            color: white;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-family: 600;
+            position: relative;
+            cursor: pointer;
+            z-index: 0;
+        }
+        .home1_main button::after{
+            content: '';
+            width: 0px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            z-index: -1;
+            border-radius: 30px;
+            background: white;
+            transition: 150ms ease-in-out;
+        }
+        .home1_main button:hover::after{
+            width: 100%;
+        }
+        .home1_main button:hover{
+            color: mediumblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="home1_main">
+        <h1>Predict Global Active Power</h1>
+        <form action="/predict1" method="POST">
+            <div class="da">
+                <input type="text" id="date" name="date" required placeholder="Date (YYYY-MM-DD):">
+            </div>
+            <div class="ti">
+                <input type="text" id="time" name="time" required placeholder="Time (HH:MM:SS):">
+            </div>
+            <div class="grp">
+                <input type="text" id="global_reactive_power" name="global_reactive_power" required placeholder="Global Reactive Power:">
+            </div>
+            <div class="volt">
+                <input type="text" id="voltage" name="voltage" required placeholder="Voltage:">
+            </div>
+            <div class="gi">
+                <input type="text" id="global_intensity" name="global_intensity" required placeholder="Global Intensity:">
+            </div>
+            <div class="s1">
+                <input type="text" id="sub_metering_1" name="sub_metering_1" required placeholder="Sub Metering 1:">
+            </div>
+            <div class="s2">
+                <input type="text" id="sub_metering_2" name="sub_metering_2" required placeholder="Sub Metering 2:">
+            </div>
+            <div class="s3">
+                <input type="text" id="sub_metering_3" name="sub_metering_3" required placeholder="Sub Metering 3:">
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
